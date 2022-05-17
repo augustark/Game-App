@@ -11,21 +11,23 @@ function Navbar() {
 
   return (
     <NavContainer>
-      <div className='logo'>
-        <ImageLink to='/'>
-          <img src={lightLogo} alt='logo'/>
-        </ImageLink>
-      </div>
-      <LinksContainer>
-        <StyledLink to='games'>Games</StyledLink>
-        <StyledLink to='news'>News</StyledLink>
-        <StyledLink to='about'>About</StyledLink>
-      </LinksContainer>
-      <SearchBar>
-        <input type='text' placeholder='Search Games' onChange={handleChange}/>
-        <IoSearch/>
-      </SearchBar>
-      <Nightmode>NIGHT MODE: <span>ON</span></Nightmode>
+      <Container>
+        <div className='logo'>
+          <ImageLink to='/'>
+            <img src={lightLogo} alt='logo'/>
+          </ImageLink>
+        </div>
+        <LinksContainer>
+          <StyledLink to='games'>Games</StyledLink>
+          <StyledLink to='news'>News</StyledLink>
+          <StyledLink to='about'>About</StyledLink>
+        </LinksContainer>
+        <SearchBar>
+          <input type='text' placeholder='Search Games' onChange={handleChange}/>
+          <IoSearch/>
+        </SearchBar>
+        <Nightmode>NIGHT MODE: <span>ON</span></Nightmode>
+      </Container>
     </NavContainer>
   )
 }
@@ -34,6 +36,11 @@ export default Navbar
 
 const NavContainer = styled.div`
   position: absolute;
+  z-index: 999;
+  width: 100%;
+`
+
+const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -41,8 +48,7 @@ const NavContainer = styled.div`
   color: #FFF;
   padding: 1em;
   gap: 1em;
-  z-index: 999;
-  width: 100%;
+  margin: 0 5rem;
 `
 
 const LinksContainer = styled.div`
