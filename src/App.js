@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+import Footer from './components/footer';
 import Navbar from './components/navbar/navbar';
 
 import { Home, Games, News, About } from './pages'
@@ -18,6 +19,7 @@ function App() {
           <Route path='about' element={<About/>} />
         </Routes> 
       </main>
+      <Footer/>
     </div>
   );
 }

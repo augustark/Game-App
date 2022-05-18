@@ -1,22 +1,29 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 const apiHeaders = {
-  "Client-ID": 'f718ob9hokldyp04c6daiw1xkufi4b',
-  "Authorization": "Bearer b5blj18r9o116x2c0s4tm6pet6uh34"
+  "Client-ID": process.env.REACT_APP_IGDB_CLIENT_ID,
+  "Authorization": process.env.REACT_APP_IGDB_TOKEN
 }
 
-const apiBody = `fields name, cover.*, genres.*; where cover.image_id != null & genres != null; limit 2; sort popularity desc;`
+console.log(process.env)
 
 const PROXY = 'https://cors-anywhere.herokuapp.com'
 
-const createRequest = (url, body) => ({ url, headers: apiHeaders, body: body || apiBody, method: 'POST'})
+const createRequest = (url, count) => ({ 
+  url, 
+  headers: apiHeaders, 
+  method: 'POST',
+  body: `fields artworks.*, cover.*, created_at, genres.*, hypes, involved_companies, name, platforms, rating, release_dates, screenshots.*, storyline, summary, total_rating, url, videos.*;
+  where videos != null & cover.image_id != null & genres != null & storyline != null & hypes != null & release_dates.date > 1641038401 & total_rating > 80; limit ${count};
+  sort popularity asc;`, 
+})
 
 export const gamesApi = createApi({
   reducerPath: 'gamesApi',
   baseQuery: fetchBaseQuery({ baseUrl: `${PROXY}/https://api.igdb.com/v4` }),
   endpoints: (builder) => ({
     getGames: builder.query({
-      query: (body) => createRequest(`/games`, body),
+      query: (count) => createRequest(`/games`, count),
     }),
   }),
 })

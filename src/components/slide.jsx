@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import ReactPlayer from 'react-player/youtube'
+// import ReactPlayer from 'react-player/youtube'
 
-function Slide({ screenshots, cover, name, storyline, videos }) {
+function Slide({ screenshots, cover, name, storyline, summary, videos }) {
   return (
     <>
       <Image>
@@ -15,10 +15,10 @@ function Slide({ screenshots, cover, name, storyline, videos }) {
         </div>
         <InfoText>
           <h1>{name}</h1>
-          <p>{storyline}</p>
+          <p>{ summary.length <= 375 ? summary : storyline > 375 ? summary : storyline }</p>
         </InfoText>
         <VideoContainer>
-          <ReactPlayer url={`https://www.youtube.com/watch?v=${videos[0].video_id}`} controls width='510px' height='286px'/>
+          {/* <ReactPlayer url={`https://www.youtube.com/watch?v=${videos[0].video_id}`} controls width='510px' height='286px'/> */}
         </VideoContainer>
       </SlideInfo>
     </>
