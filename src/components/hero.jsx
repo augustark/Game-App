@@ -6,8 +6,6 @@ import Slide from './slide'
 
 function Hero({ slides }) {
   const [current, setCurrent] = useState(0)
-
-  console.log(slides)
   
   const nextSlide = () => setCurrent(current === slides.length -1 ? 0 : current + 1)
   const prevSlide = () => setCurrent(current === 0 ? slides.length - 1 : current - 1)

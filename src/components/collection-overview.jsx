@@ -10,8 +10,8 @@ function CollectionOverview({ title, link, data, element }) {
         <More to={`/${link}`}>View more</More>
       </Header>
       <Preview>
-        {data.map((item) => (
-          React.cloneElement(element, { item })
+        {data.map((item, index) => (
+          React.cloneElement(element, { key: index , item })
         ))}
       </Preview>
     </Overview>
