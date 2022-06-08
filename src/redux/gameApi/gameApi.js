@@ -7,13 +7,13 @@ const LAST_DAY_OF_MONTH = new Date(date.getFullYear(), date.getMonth()).getTime(
 const LAST5YEARS = new Date(date.getFullYear() - 5, 0).getTime()/1000
 const DATE_TODAY = Math.floor(date.getTime()/1000)
 
-
-let PROXY 
+let PORT = process.env.PORT || 3000
+let PROXY = `http://localhost:${PORT}`
 
 // if (process.env.NODE_ENV === 'development') {
 //   // PROXY = 'http://localhost:8010/proxy'
 // } else {
-  PROXY = 'https://api.igdb.com/v4'
+  // PROXY = 'https://api.igdb.com/v4'
 // }
 
 export const heroSection = `

@@ -22,7 +22,7 @@ const Home = () => {
       <CollectionOverview data={upcomingData} title='Upcoming' id='coming_soon' isFetching={dataFetching3}/>
       {!newsFetching &&
         <div className='news-peek'>
-          <h1>Today's News</h1>
+          <h1>Latest News</h1>
           <div className='peek-cards'>
             {newsData.articles.slice(0, 2).map((article, i) => 
               <a href={article.url} target='_blank' rel='noreferrer' key={i}>
