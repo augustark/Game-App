@@ -7,8 +7,8 @@ const LAST_DAY_OF_MONTH = new Date(date.getFullYear(), date.getMonth()).getTime(
 const LAST5YEARS = new Date(date.getFullYear() - 5, 0).getTime()/1000
 const DATE_TODAY = Math.floor(date.getTime()/1000)
 
-const PROXY = 'http://localhost:8010/proxy'
-// const BASE_URL = 'https://api.igdb.com/v4'
+// const PROXY = 'http://localhost:8010/proxy'
+const PROXY = 'https://api.igdb.com/v4'
 
 export const heroSection = `
   fields artworks.*, first_release_date, game_modes.*, name, platforms, player_perspectives.*, rating, release_dates.*, screenshots.*, similar_games, slug, storyline, summary, themes.name, total_rating, updated_at, url, videos.*, websites.*; where artworks != null & first_release_date > ${TODAY_YEAR} & rating > 75 & total_rating > 70; sort rating desc;
