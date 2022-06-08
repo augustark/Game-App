@@ -21,10 +21,10 @@
 # URL Redirects
 #///////////////////////////////
 # Below is a very standard rule for Single Page Apps using routing
-#[[redirects]]
-#   from = "/*"
-#   to = "/index.html"
-#   status = 200
+[[redirects]]
+   from = "/*"
+   to = "/index.html"
+   status = 200
 
 
 #///////////////////////////////
