@@ -1,0 +1,27 @@
+.news-sidebar {
+  padding: 1em;
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  max-width: 200px;
+
+  & h2 {
+    margin: 0;
+  }
+
+  & .news-game-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+
+    & .card {
+      & img {
+        height: auto;
+      }
+      &:hover {
+        transform: scale(1);
+      }
+    }
+  } 
+}

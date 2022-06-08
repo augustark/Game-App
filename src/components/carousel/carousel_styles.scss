@@ -1,0 +1,226 @@
+.carousel {
+  position: relative;
+
+  & .controls {
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    left: 5%;
+    right: 5%;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    color: #FFF;
+
+    & svg {
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+    }
+  }
+
+  & .swiper {
+    width: 100%;
+    height: 100%;
+
+    & .swiper-pagination {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      bottom: 5%;
+
+      &-bullet {
+        background-color: #737373;
+        opacity: 1;
+
+        &-active {
+          background: #FFF;
+        }
+      }
+    }
+
+    & .swiper-slide {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &::before {
+        content: '';
+        position: absolute;
+        background: rgba(var(--prime), 0.6);
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transition: 1s;
+      }
+
+     .dark &::before {
+        background: rgba(var(--prime), 0.7);
+      }
+
+      .dark &::after {
+        content: '';
+        position: absolute;
+        bottom: -10%;
+        left: 0;
+        right: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        transition: 0.5s;
+        background: linear-gradient(0deg, rgba(var(--prime), 0.75) 0%, rgba(var(--prime), 0) 100%);
+      }
+
+      & .slide-hero-bg {
+        width: 100%;
+        height: 92vh;
+        object-fit: cover;
+        object-position: 50% 20%;
+        position: relative;
+        z-index: -5;
+        transition: 0.5s, height 0.5s ease-out;
+      }
+      
+      .dark & .slide-hero-bg {
+        height: 100vh;
+        transition: 0.5s, height 1s ease-in-out;
+      }
+
+      & .slide-info {
+        position: absolute;
+        bottom: 0;
+        top: 5.125rem;
+        left: 15%;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1.5em;
+        max-width: 530px;
+        color: #FFF;
+
+        & .info-name {
+          margin: 0;
+          font-size: 3.125rem;
+          line-height: 110%;
+        }
+
+        & .info-ratings {
+          display: flex;
+          align-items: center;
+          font-size: 1.15rem;
+          
+          & .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+            position: relative;
+            padding-left: 0.2em;
+
+            &::after {
+              content: '';
+              position: absolute;
+              height: 100%;
+              width: 2px;
+              right: 0;
+              background: #e5e7eb;
+            }
+
+            & svg {
+              width: 35px;
+              height: 35px;
+              color: #FFC700;
+            }
+          }
+
+          & p {
+            padding: 0 1em;
+          }
+        }
+
+        & .info-desc {
+          margin-top: 0;
+          line-height: 150%;
+          font-size: 1.15rem;
+          color: #e5e7eb;
+          position: relative;
+        }
+
+        & .info-genres {
+          display: flex;
+          gap: 0.5em;
+
+          & button {
+            border-radius: 5rem;
+            background: rgba(var(--prime), 0.2);
+            border: 2px solid var(--grey);
+            color: var(--white);
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 0.6em 1.5em;
+          }
+        }
+
+        & .info-buttons {
+          display: flex;
+          align-items: center;
+          gap: 1em;
+          padding: 1em 0;
+
+          & button {
+            padding: 1.2em 1.5em;
+            background-color: #494949;
+            border: 2px solid #494949;
+            color: #FFF;
+            font-weight: bold;
+            letter-spacing: 1px;
+            font-family: inherit;
+            border-radius: 3px;
+            transition: transform 50ms ease-out;
+            cursor: pointer;
+
+            &:hover {
+              background: #A8A8A8;
+              border-color: #A8A8A8;
+              transform: scale(1.02);
+              transition: transform 50ms ease-in;
+            }
+          }
+
+          & a {
+            text-decoration: none;
+          }
+
+          & .watch {
+            padding: 0.8em 1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1em;
+            border: 2px solid #E9185F;
+            background: none;
+
+            & svg {
+              width: 30px;
+              height: 30px;
+              color: #E9185F;
+            }
+
+            &:hover {
+              background: #E9185F;
+              border-color: #E9185F;
+              box-shadow: 0 0 15px 1px #CD527C,0 0 2px 1px #CD527C;
+
+              & svg {
+                color: #FFF;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

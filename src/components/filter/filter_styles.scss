@@ -1,0 +1,51 @@
+.filter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-items: flex-end;
+
+  & h3 {
+    padding: 0.25rem 1rem;
+  }
+  
+  .dark & h3 {
+    color: var(--grey);
+  }
+
+  & .filter-btn {
+    background: none;
+    border: none;
+    border-radius: 0.35rem;
+    padding: 0.25rem 1rem;
+    font-family: inherit;
+    
+    &:hover {
+      background: var(--grey);
+    }
+  }
+
+  .dark & .filter-btn {
+    color: grey;
+
+    &:hover {
+      background: var(--grey);
+    }
+  }
+
+  & .selected {
+    background: var(--accent);
+    color: #faf5ff;
+    font-weight: bold;
+
+    &:hover {
+      background: var(--accent);
+    }
+  }
+
+  .dark & .selected {
+    color: var(--white);
+    &:hover {
+      background-color: var(--accent);
+    }
+  }
+}

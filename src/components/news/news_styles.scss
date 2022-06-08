@@ -1,0 +1,63 @@
+.news {
+  display: flex;
+  margin: 2em auto;
+  max-width: 1300px;
+  justify-content: space-between;
+
+  & .news-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+
+    & .collection-overview {
+      max-width: 1000px;
+      margin: auto 0;
+      position: relative;
+
+      & .collection-header {
+        padding: 0 0 1rem;
+      }
+
+      & .swiper {
+        padding: 0;
+
+        & .card {
+          & img {
+            height: auto;
+          }
+
+          & h3 {
+            font-size: 1.1rem;
+          }
+          &:hover {
+            transform: scale(1.005);
+          }
+        }
+        
+      }
+
+      & .controls {
+        position: absolute;
+        top: 3%;
+        right: 0;
+        bottom: unset;
+        left: unset;
+        display: flex;
+        justify-content: flex-end;
+        z-index: 1;
+
+        & svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+
+    & .top-rated {
+      & .card-container {
+        display: flex;
+        gap: 1em;
+      }
+    }
+  }
+}

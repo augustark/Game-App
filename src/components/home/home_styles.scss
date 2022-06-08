@@ -1,0 +1,80 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  & .collection-overview {
+    max-width: 1400px;
+    width: 1400px;
+  }
+
+  & .news-peek {
+    max-width: calc(1400px - 2rem);
+    margin: 0 auto;
+    margin-bottom: 2rem;
+
+    & h1 {
+      margin: 0;
+      margin-bottom: 1rem;
+    }
+
+    & .peek-cards {
+      display: flex;
+      gap: 2em;
+
+      & a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      & .peek-card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+        transition: 250ms;
+
+        &:hover {
+          transform: scale(1.01);
+          transition: 250ms;
+        }
+
+        & .peek-card-info {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+          width: 100%;
+          padding: 0 0.5rem;
+
+          & p, h2 {
+            margin: 0;
+            line-height: 125%;
+          }
+
+          & p {
+            margin-top: 1rem;
+          }
+
+          & span {
+            flex: 1;
+            align-self: flex-end;
+            justify-self: flex-end;
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: #FFF;
+            padding: 1em;
+            background: #E9185F;
+          }
+        }
+        
+        & img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}

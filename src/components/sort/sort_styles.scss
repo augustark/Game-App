@@ -1,0 +1,48 @@
+.sort {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+
+  & span {
+    color: var(--grey_dark);
+  }
+
+  & select {
+    padding: 0.25em;
+    border-radius: 3px;
+    background: none;
+    font-family: inherit;
+
+    &:active,
+    &:hover,
+    &:focus-within {
+      border-color: var(--accent);
+      outline: 1px solid var(--accent);
+    }
+
+    & option {
+      border: none;
+      outline: none;
+    }
+  }
+
+  .dark & span {
+    color: var(--white);
+  }
+
+  .dark & select {
+    color: #FFF;
+
+    &:active,
+    &:hover,
+    &:focus-within {
+      border-color: var(--accent);
+      outline: 1px solid var(--accent);
+    }
+
+    & option {
+      background-color: rgba(var(--prime), 1);
+      padding: 0.25em 0.5em;
+    }
+  }
+}

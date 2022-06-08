@@ -1,0 +1,139 @@
+.directory {
+  display: flex;
+  padding: 2rem;
+  padding-top: 0;
+  max-width: 1800px;
+  margin: 0 auto;
+
+  & .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+    padding: 1rem;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 1px;
+      height: 100%;
+      right: 0;
+      background: rgba(var(--prime), 1);
+    }
+
+    .dark &::after {
+      background: var(--grey_dark);
+    }
+  }
+  & .collection-container {
+    flex: 1;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+
+    & .header {
+      & a {
+        text-decoration: none;
+        color: var(--grey);
+        font-size: 0.8rem;
+      }
+
+      
+      & h1 {
+        margin: 0;
+        font-size: 3.125rem;
+      }
+    }
+    
+    & .sorting-collections {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      & .collections {
+        display: flex;
+        align-items: center;
+        gap: 0.8em;
+
+        & button {
+          background: none;
+          cursor: pointer;
+          font-size: 0.9rem;
+          border: none;
+          position: relative;
+          padding: 0;
+          font-family: inherit;
+
+          & a {
+            text-decoration: none;
+            color: inherit;
+          }
+
+          .dark & a {
+            color: #888;
+          }
+
+          & .active::after,
+          &:hover::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: var(--accent);
+            bottom: -30%;
+            left: 0;
+            right: 0;
+          } 
+
+          .dark & .active {
+            color: var(--white);
+          }
+        }
+
+        & .pagination {
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+
+          & button {
+            cursor: pointer;
+            background: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.25rem;
+            border: none;
+
+            &:hover::after {
+              position: unset;
+              content: unset;
+            }
+
+            & svg {
+              width: 18px;
+              height: 18px;
+            }
+
+            .dark & svg {
+              color: var(--grey);
+            }
+
+            &:disabled {
+              cursor: default;
+            }
+          }
+
+          & .page-number {
+            justify-self: flex-start;
+            cursor: default;
+
+            &:hover::after {
+              position: unset;
+            }
+          }
+        }
+      }
+    }
+  }
+}

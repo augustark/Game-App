@@ -1,0 +1,68 @@
+.input-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  border-radius: 1rem;
+  padding: 0.25em;
+  transition: 150ms;
+  gap: 0.25em;
+  
+  &:hover,
+  &:focus-within {
+    border: 2px solid white;
+    background-color: white;
+    transition: 150ms;
+
+    & svg {
+      color: black
+    }
+  }
+
+  & svg {
+    width: 20px;
+    height: 20px;
+    color: white;
+  }
+
+  & input {
+    border: none;
+    outline: none;
+    background: none;
+    color: black;
+    position: relative;
+    cursor: text;
+    border-radius: 3px;
+    display: none;
+  }
+
+  & .display-input {
+    display: block;
+  }
+}
+
+.not-home {
+  & .input-container {
+    &:hover,
+    &:focus-within {
+      border-color: var(--grey);
+      background-color: var(--grey);
+    }
+  }
+
+  .dark & .input-container {
+    &:hover,
+    &:focus-within {
+      border-color: var(--white); 
+      background-color: var(--white);
+
+      & svg {
+        color: var(--accent);
+      }
+    }
+  }
+}
+
+
+
+

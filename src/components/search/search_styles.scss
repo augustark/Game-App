@@ -1,0 +1,14 @@
+.search-container {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  & h1 {
+    margin: 0 0 1rem;
+  }
+
+  & .search-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1em;
+  }
+}

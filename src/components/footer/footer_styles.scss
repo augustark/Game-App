@@ -1,0 +1,27 @@
+.footer {
+  padding: 2.5em 0;
+  color: #AAA;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+
+  & .sc-accounts {
+    display: flex;
+    gap: 1em;
+
+    & svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  & p {
+    margin: 0;
+  }
+}
+
+.dark .footer {
+ color: var(--grey_darker);   
+}
