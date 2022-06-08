@@ -10,12 +10,11 @@ const DATE_TODAY = Math.floor(date.getTime()/1000)
 
 let PROXY 
 
-if (process.env.NODE_ENV === 'development') {
-  // PROXY = 'http://localhost:8010/proxy'
-  PROXY = '/.netlify/functions/node-fetch'
-} else {
+// if (process.env.NODE_ENV === 'development') {
+//   // PROXY = 'http://localhost:8010/proxy'
+// } else {
   PROXY = 'https://api.igdb.com/v4'
-}
+// }
 
 export const heroSection = `
   fields artworks.*, first_release_date, game_modes.*, name, platforms, player_perspectives.*, rating, release_dates.*, screenshots.*, similar_games, slug, storyline, summary, themes.name, total_rating, updated_at, url, videos.*, websites.*; where artworks != null & first_release_date > ${TODAY_YEAR} & rating > 75 & total_rating > 70; sort rating desc;

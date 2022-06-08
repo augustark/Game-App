@@ -7,7 +7,6 @@ import { store } from './redux/store';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 import App from './App';
-import Test from './Test';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
@@ -16,7 +15,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
-        <Test/>
+        <App/>
       </Provider>
     </BrowserRouter>
   </React.StrictMode>
