@@ -46,7 +46,7 @@ const instance = axios.create({
   method: 'POST',
   headers: {
     "Client-ID": process.env.REACT_APP_IGDB_CLIENT_ID,
-    "Authorization": process.env.REACT_APP_IGDB_TOKEN
+    "Authorization": process.env.REACT_APP_IGDB_TOKEN,
   },
 })
 
