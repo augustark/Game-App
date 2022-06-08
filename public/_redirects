@@ -1,3 +1,0 @@
-/api/_ https://api.igdb.com/v4/:splat 200
-/_ /index.html 200
-/\* /index.html 404
