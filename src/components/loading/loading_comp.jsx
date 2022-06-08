@@ -21,7 +21,7 @@ const Loading = ({ type, value }) => {
           <Skeleton className='h1-skeleton'/>
           <div className='skeleton-container'>
             {Array(20).fill('').map((_, i) => 
-              <div className='skeleton-news-card'>
+              <div className='skeleton-news-card' key={i}>
                 <Skeleton className='skel-image'/>
                 <div className='skel-info'>
                   <Skeleton className='skel-title' count={2}/>
@@ -40,7 +40,7 @@ const Loading = ({ type, value }) => {
           <Skeleton className='h1-skeleton'/>
           <div className='skeleton-container'>
             {Array(5).fill('').map((_, i) => 
-              <div className='skeleton-card'>
+              <div className='skeleton-card' key={i}>
                 <Skeleton className='skel-image'/>
                 <Skeleton className='skel-name'/>
                 <Skeleton className='skel-sub'/>

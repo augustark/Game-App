@@ -23,7 +23,7 @@ const CollectionPreview = () => {
     dispatch(setIsPrevious(isPreviousData))
   }, [isPreviousData, dispatch])
   
-  if (isError) return <div>Error</div>
+  if (isError) return <div>Failed to fetch games</div>
   
   return (
     <div className='collection'>

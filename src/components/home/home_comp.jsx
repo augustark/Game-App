@@ -5,6 +5,7 @@ import fetchNews from '../../redux/gameNewsApi/gameNewsApi'
 import CollectionOverview from '../collection-overview/collection-overview_comp';
 import Carousel from '../carousel/carousel_comp'
 import './home_styles.scss'
+import Error from '../error/error_comp';
 
 const Home = () => {
   const { data: heroData, isFetching, isError} = useQuery(['featured', {body: heroSection}], fetchGames, { keepPreviousData: true, })
@@ -12,8 +13,7 @@ const Home = () => {
   const { data: upcomingData, isFetching: dataFetching3} = useQuery(['featured', {body: upcomingSection}], fetchGames, { keepPreviousData: true, })
   const { data: newsData, isFetching: newsFetching, isError: newsError } = useQuery('home-news', fetchNews, { keepPreviousData: true })
 
-  if (isError) return <div>Error Occured</div>
-  if (newsError) return <div>Error Occured</div>
+  if (isError || newsError) return <Error/>
   
   return (
     <div className='home'>
