@@ -1,19 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 function Test() {
-  const [msg, setMsg] = useState('')
-  const handler = () => {
-    fetch('/games', {
-      method: 'POST',
-      header: {
-        "Client-ID": process.env.REACT_APP_IGDB_CLIENT_ID,
-        "Authorization": process.env.REACT_APP_IGDB_TOKEN
-      },
-      body: 'fields name;'
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data))
-  }
+  const [msg, setMsg] = React.useState("click the button")
+  const handler = () =>
+    fetch("https://icanhazdadjoke.com/", { headers: { accept: "Accept: application/json" } })
+      .then((x) => x.json())
+      .then(({ msg }) => setMsg(msg))
 
   return (
     <div className="App">
