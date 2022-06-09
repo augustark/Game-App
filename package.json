@@ -47,5 +47,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://api.igdb.com/v4"
+  "proxy": "https://api.igdb.com/v4",
+  "devDependencies": {
+    "netlify-cli": "^10.5.0"
+  }
 }
