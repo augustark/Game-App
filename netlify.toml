@@ -1,3 +1,11 @@
-[build]
-  functions = "netlify/functions/"
-  publish = "build"
+[[redirects]]
+  from = "/api/*"
+  to = "https://api.igdb.com/v4/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/news/*"
+  to = "https://newsapi.org/v2/:splat"
+  status = 200
+  force = true

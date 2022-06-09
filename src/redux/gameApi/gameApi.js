@@ -7,6 +7,15 @@ const LAST_DAY_OF_MONTH = new Date(date.getFullYear(), date.getMonth()).getTime(
 const LAST5YEARS = new Date(date.getFullYear() - 5, 0).getTime()/1000
 const DATE_TODAY = Math.floor(date.getTime()/1000)
 
+let PORT = process.env.PORT || 3000
+let PROXY
+
+if (process.env.NODE_ENV === 'development') {
+  PROXY = `http://localhost:${PORT}`
+} else {
+  PROXY = '/api'
+}
+
 export const heroSection = `
   fields artworks.*, first_release_date, game_modes.*, name, platforms, player_perspectives.*, rating, release_dates.*, screenshots.*, similar_games, slug, storyline, summary, themes.name, total_rating, updated_at, url, videos.*, websites.*; where artworks != null & first_release_date > ${TODAY_YEAR} & rating > 75 & total_rating > 70; sort rating desc;
 `
@@ -31,6 +40,16 @@ export const topMonthSection = `
   fields artworks.*, cover.*, genres.*, name, platforms.*, screenshots, first_release_date, rating, total_rating, themes.name; where artworks != null & cover != null & genres != null & first_release_date > ${TODAY_YEAR} & first_released_date < ${LAST_DAY_OF_MONTH}; sort total_rating asc; limit 15;
 `
 
+
+const instance = axios.create({
+  baseURL: `${PROXY}`,
+  method: 'POST',
+  headers: {
+    "Client-ID": process.env.REACT_APP_IGDB_CLIENT_ID,
+    "Authorization": process.env.REACT_APP_IGDB_TOKEN,
+  },
+})
+
 const fetchGames = async ({ queryKey }) => {
   const { body, page, filter, request, sort } = queryKey[1]
   const offset = page && page === 1 ? 1 : ((page * 10) * 2 ) - 20
@@ -39,24 +58,24 @@ const fetchGames = async ({ queryKey }) => {
 
   let customBody = page && insertFilter(body, filter)
   customBody = !sort ? customBody : insertSorter(customBody, sort.option, sort.order)
-
-  const response = await axios({
-    url: './netlify/functions/fetch-games', 
+  
+  const response = await instance({
+    url: '/games',
     data: `
       ${page ? customBody : body}
       ${limit}
       ${pagination}
     `
   })
-
   return response.data
 }
 
 export default fetchGames
 
 export const fetchGamesBySearch = async ({ queryKey }) => {
-  const response = await fetch('./netlify/functions/fetch-games', {
-    body: `fields artworks.*, cover.*, genres.*, name, platforms.*, screenshots, first_release_date, themes.name; limit 25; search "${queryKey[1]}";`
+  const response = await instance({
+    url: '/games',
+    data: `fields artworks.*, cover.*, genres.*, name, platforms.*, screenshots, first_release_date, themes.name; limit 25; search "${queryKey[1]}";`
   })
   return response.data
 }
