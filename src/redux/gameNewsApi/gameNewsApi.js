@@ -6,7 +6,7 @@ const fetchNews = async () => {
   const topic = 'video+games'
 
   const response = await axios({
-    url: `https://newsapi.org/v2/everything?q=${topic}`,
+    url: `/news-api/${topic}`,
     method: 'GET',
     headers: {
       'Authorization': apiKey
