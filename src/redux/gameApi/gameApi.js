@@ -8,13 +8,13 @@ const LAST5YEARS = new Date(date.getFullYear() - 5, 0).getTime()/1000
 const DATE_TODAY = Math.floor(date.getTime()/1000)
 
 let PORT = process.env.PORT || 3000
-let PROXY = `http://localhost:${PORT}`
+let PROXY
 
-// if (process.env.NODE_ENV === 'development') {
-//   // PROXY = 'http://localhost:8010/proxy'
-// } else {
-  // PROXY = 'https://api.igdb.com/v4'
-// }
+if (process.env.NODE_ENV === 'development') {
+  PROXY = `http://localhost:${PORT}`
+} else {
+  PROXY = '/api'
+}
 
 export const heroSection = `
   fields artworks.*, first_release_date, game_modes.*, name, platforms, player_perspectives.*, rating, release_dates.*, screenshots.*, similar_games, slug, storyline, summary, themes.name, total_rating, updated_at, url, videos.*, websites.*; where artworks != null & first_release_date > ${TODAY_YEAR} & rating > 75 & total_rating > 70; sort rating desc;
