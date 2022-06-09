@@ -3,9 +3,10 @@ import axios from "axios";
 
 const fetchNews = async () => {
   const apiKey = process.env.REACT_APP_NEWSAPI_APIKEY
-  // https://newsapi.org/v2/everything?q=video+games
+  const topic = 'video+games'
+
   const response = await axios({
-    url: '/news-api',
+    url: `https://newsapi.org/v2/everything?q=${topic}`,
     method: 'GET',
     headers: {
       'Authorization': apiKey

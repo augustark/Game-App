@@ -20,7 +20,7 @@ const Home = () => {
       <Carousel data={heroData} loading={isFetching}/>
       <CollectionOverview data={popularData} title='Popular' id='popular' isFetching={dataFetching2}/>
       <CollectionOverview data={upcomingData} title='Upcoming' id='coming_soon' isFetching={dataFetching3}/>
-      {/* {!newsFetching &&
+      {!newsFetching &&
         <div className='news-peek'>
           <h1>Latest News</h1>
           <div className='peek-cards'>
@@ -38,7 +38,7 @@ const Home = () => {
             )}
           </div>
         </div>
-      } */}
+      }
     </div>
   )
 }
