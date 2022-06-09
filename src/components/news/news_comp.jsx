@@ -18,7 +18,7 @@ const News = () => {
     <div className='news'>
       <div className='news-container'>
         <CollectionOverview title='Top Rated This Month' data={data} isRating isFetching={isFetching}/>
-        <NewsPreview/>
+        {/* <NewsPreview/> */}
       </div>
       <NewsSidebar/>
     </div>

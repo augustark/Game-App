@@ -2,8 +2,3 @@
   from = "/api/*"
   to = "https://api.igdb.com/v4/:splat"
   status = 301
-
-[[redirects]]
-  from = "/news-api"
-  to = "https://newsapi.org/v2/everything?q=video+games"
-  status = 301
