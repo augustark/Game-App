@@ -9,7 +9,6 @@ import Card from '../card/card_comp'
 import './collection-overview_styles.scss'
 import Loading from '../loading/loading_comp'
 
-
 const CollectionOverview = ({ data, title, id, isRating, isComing, isFetching }) => {
   const swiperRef = React.useRef()
   const dispatch = useDispatch()

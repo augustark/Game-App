@@ -61,3 +61,18 @@
     transition: transform 150ms ease-in;
   }
 }
+
+@media screen and (max-width: 1500px) {
+  .news-link .news-card {
+    max-width: 800px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .news-link .news-card  {
+    max-width: 700px;
+  }
+  .news-link .news-card .news-card-info {
+    font-size: 0.8rem;
+  }
+}

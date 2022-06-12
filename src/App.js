@@ -27,27 +27,6 @@ const queryClient = new QueryClient({
 const App = () => {
   const isDarkMode = useSelector((state) => state.darkMode.isDarkMode)
 
-  React.useEffect(() => {
-    const fetchNews = async () => {
-      const response = await fetch('./netlify/functions/fetch-news?topic="video+games"')
-      const data = await response.json()
-      console.log(data)
-    }
-
-    const fetchGames = async () => {
-      const response = await fetch('./netlify/functions/fetch-games"', {
-        method: 'POST',
-        body: 'fields name, cover.*, genres.*; where cover.image_id != null & genres != null; limit 5; sort popularity desc;'
-      })
-      const data = await response.json()
-      console.log(data)
-    }
-
-    fetchNews()
-    fetchGames()
-
-  }, [])
-
   return (
     <SkeletonTheme baseColor={isDarkMode ? "grey" : "#AAAAAA"} highlightColor={isDarkMode ? "#444" : "grey"}>
       <div className={`app ${isDarkMode ? 'dark' : ''}`}>

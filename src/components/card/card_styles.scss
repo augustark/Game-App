@@ -8,7 +8,7 @@
   
     & img {
       width: 100%;
-      height: 352px;
+      max-height: 352px;
       object-fit: cover;
     }
   
@@ -30,5 +30,11 @@
       transform: scale(1.025);
       transition: transform 100ms ease;
     }
+  }
+}
+
+@media (max-width: 1200px) {
+  .card-container > .card > img {
+    // height: calc(352px / 1.5);
   }
 }

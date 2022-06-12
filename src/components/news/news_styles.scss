@@ -61,3 +61,41 @@
     }
   }
 }
+
+@media screen and (max-width: 1500px) {
+  .news {
+    max-width: 1100px;
+    
+    & .news-container {
+      & .collection-overview {
+        max-width: 800px;
+      }
+      & .latest-news .news-link-big .big {
+        max-width: 800px;
+        height: 300px;
+
+        & img {
+          max-width: 400px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .news {
+    max-width: 900px;
+    margin: 2rem auto;
+    gap: 2em;
+
+    & .news-container {
+      & .latest-news {
+        gap: 1em;
+      }
+
+      & .collection-overview {
+        max-width: 700px;
+      }
+    }
+  }
+}
